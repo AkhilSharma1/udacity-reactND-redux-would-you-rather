@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { users } from '../reducers/users';
 
 class Login extends Component{
 
-    render(){    
-
+    render(){
+        const {users} = this.props
+        console.log(users)
 
         return (
             <div>
