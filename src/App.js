@@ -19,17 +19,17 @@ class App extends Component {
         <Fragment>
           <CssBaseline />
           <LoadingBar />
-          {authedUser === null ? <Login /> : <div>Dashboard</div>}
+          {loading === true ? null:(authedUser === null ? <Login /> : <div>Dashboard</div>)}
         </Fragment>
       </Router>
     );
   }
 }
 
-function mapStateToProps({ authedUser, questions }) {
+function mapStateToProps({ authedUser, users }) {
   return {
     authedUser,
-    loading: questions === null
+    loading: users===null
   };
 }
 
