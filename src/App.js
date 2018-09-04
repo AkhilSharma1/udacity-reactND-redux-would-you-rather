@@ -1,10 +1,13 @@
 import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { handleInitialData } from "./actions/shared";
 import LoadingBar from "react-redux-loading";
 import Login from "./components/Login";
+import Nav from "./components/Nav";
+import Home from "./components/Home";
+import PollOverview from "./components/PollOverview";
 
 class App extends Component {
   componentDidMount() {
@@ -18,18 +21,22 @@ class App extends Component {
       <Router>
         <Fragment>
           <CssBaseline />
+          <Nav />
           <LoadingBar />
-          {loading === true ? null:(authedUser === null ? <Login /> : <div>Dashboard</div>)}
+          {loading === true ? null : (
+            //  (authedUser === null ? <Login /> : <Home/>)
+            <PollOverview questionId = "am8ehyc8byjqgar0jgpub9"/>
+          )}
         </Fragment>
       </Router>
     );
   }
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ authedUser, questions }) {
   return {
     authedUser,
-    loading: users===null
+    loading: questions === null
   };
 }
 
