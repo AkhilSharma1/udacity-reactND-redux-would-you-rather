@@ -129,12 +129,7 @@ class Login extends Component {
                       id: "user-required"
                     }}
                   >
-                    {/* <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem> */}
+          
                     {Object.keys(users).map(userId => (
                       <MenuItem value={userId} key={userId}>
                         {users[userId].name}

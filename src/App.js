@@ -8,9 +8,12 @@ import Login from "./components/Login";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import PollOverview from "./components/PollOverview";
+import { setAuthedUser } from "./actions/authedUser";
 
 class App extends Component {
   componentDidMount() {
+    this.props.dispatch(setAuthedUser("sarahedo"));
+
     this.props.dispatch(handleInitialData());
   }
 
@@ -21,11 +24,11 @@ class App extends Component {
       <Router>
         <Fragment>
           <CssBaseline />
-          <Nav />
+          {/* <Nav /> */}
           <LoadingBar />
           {loading === true ? null : (
             //  (authedUser === null ? <Login /> : <Home/>)
-            <PollOverview questionId = "am8ehyc8byjqgar0jgpub9"/>
+            <Home />
           )}
         </Fragment>
       </Router>

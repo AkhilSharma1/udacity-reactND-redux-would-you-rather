@@ -46,7 +46,7 @@ class Nav extends Component {
     const { classes, users, authedUser } = this.props;
     const { value } = this.state;
 
-    let user = authedUser === null ? null : users[authedUser.id];
+    let user = authedUser === null ? null : users[authedUser];
 
     return (
       <div className={classes.root}>

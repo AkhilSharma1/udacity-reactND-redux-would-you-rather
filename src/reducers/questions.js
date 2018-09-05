@@ -1,6 +1,6 @@
 import { RECEIVE_QUESTIONS } from "../actions/questions";
 
-export function questions(state = {}, action) {
+export function questions(state = null, action) {
   switch (action.type) {
     case RECEIVE_QUESTIONS:
       return {

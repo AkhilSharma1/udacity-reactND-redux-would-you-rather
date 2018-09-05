@@ -4,8 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-import Button from '@material-ui/core/Button';
-import { questions } from '../reducers/questions';
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   container: {
@@ -25,7 +24,9 @@ const styles = theme => ({
     width: "100%"
   },
   title: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginLeft: theme.spacing.unit * 2
+
   },
   detail: {
     display: "flex",
@@ -49,10 +50,14 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit,
-    width:'80%',
-  },
+    width: "80%"
+  }
 });
 class PollOverview extends Component {
+  handleSubmit = e => {
+    e.preventDefault();
+    //TODO: go to poll details page.
+  };
   render() {
     const { classes, question, user } = this.props;
 
@@ -74,12 +79,16 @@ class PollOverview extends Component {
               <Typography variant="subheading" className={classes.title}>
                 Would you rather
               </Typography>
-              <Typography variant="body2">...{question.optionOne.text}...</Typography>
+              <Typography variant="body2">
+                ...
+                {question.optionOne.text}
+              </Typography>
               <Button
                 variant="outlined"
                 color="primary"
                 fullWidth
                 className={classes.button}
+                onClick={this.handleSubmit}
               >
                 View Poll
               </Button>
