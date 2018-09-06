@@ -9,6 +9,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import PollOverview from "./components/PollOverview";
 import { setAuthedUser } from "./actions/authedUser";
+import NewPoll from "./components/NewPoll";
 
 class App extends Component {
   componentDidMount() {
@@ -28,7 +29,9 @@ class App extends Component {
           <LoadingBar />
           {loading === true ? null : (
             //  (authedUser === null ? <Login /> : <Home/>)
-            <Home />
+            // <Home />
+            // <Login/>
+            <NewPoll/>
           )}
         </Fragment>
       </Router>
