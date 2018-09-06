@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import PollOverview from "./components/PollOverview";
 import { setAuthedUser } from "./actions/authedUser";
 import NewPoll from "./components/NewPoll";
+import LeaderBoard from "./components/LeaderBoard";
 
 class App extends Component {
   componentDidMount() {
@@ -31,7 +32,8 @@ class App extends Component {
             //  (authedUser === null ? <Login /> : <Home/>)
             // <Home />
             // <Login/>
-            <NewPoll/>
+            // <NewPoll/>
+            <LeaderBoard/>
           )}
         </Fragment>
       </Router>

@@ -4,15 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
-import LockIcon from "@material-ui/icons/LockOutlined";
-import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import { setAuthedUser } from "../actions/authedUser";
 import TextField from "@material-ui/core/TextField";
 import { handleAddQuestion } from "../actions/questions";
 
@@ -59,7 +51,7 @@ class NewPoll extends Component {
     const { dispatch, authedUser } = this.props;
     const { optionOneText, optionTwoText } = this.state;
 
-    this.props.dispatch(
+    dispatch(
       handleAddQuestion(authedUser, optionOneText, optionTwoText)
     );
   };

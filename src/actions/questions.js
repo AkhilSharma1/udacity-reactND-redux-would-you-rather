@@ -1,4 +1,4 @@
-import { saveQuestionAnswer, saveQuestion } from "../utils/api";
+import { saveQuestion } from "../utils/api";
 import { showLoading, hideLoading } from "react-redux-loading";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
@@ -13,7 +13,6 @@ export function receiveQuestions(questions) {
 
 export function handleAddQuestion(author, optionOneText, optionTwoText) {
   return (dispatch, getState) => {
-    const { authedUser } = getState();
 
     dispatch(showLoading);
     return saveQuestion({
