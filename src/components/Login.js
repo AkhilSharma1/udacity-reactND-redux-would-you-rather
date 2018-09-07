@@ -25,10 +25,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.grey[100],
     padding: theme.spacing.unit
   },
-  avatar: {
-    margin: theme.spacing.unit,
-    backgroundColor: theme.palette.secondary.main
-  },
+
   logo: {
     height: 120,
     width: 120,

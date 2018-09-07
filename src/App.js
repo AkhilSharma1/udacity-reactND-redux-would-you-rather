@@ -11,6 +11,7 @@ import PollOverview from "./components/PollOverview";
 import { setAuthedUser } from "./actions/authedUser";
 import NewPoll from "./components/NewPoll";
 import LeaderBoard from "./components/LeaderBoard";
+import Score from "./components/Score";
 
 class App extends Component {
   componentDidMount() {
@@ -33,6 +34,16 @@ class App extends Component {
             // <Home />
             // <Login/>
             // <NewPoll/>
+            // <Score
+            //   userDetails={JSON.stringify({
+            //     name: "Sarah Edo",
+            //     avatarURL:
+            //       "https://tylermcginnis.com/would-you-rather/sarah.jpg",
+            //     answersNum: 4,
+            //     questionsNum: 2,
+            //     totalNum: 6
+            //   })}
+            // />
             <LeaderBoard/>
           )}
         </Fragment>

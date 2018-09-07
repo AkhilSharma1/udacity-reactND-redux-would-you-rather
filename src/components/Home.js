@@ -12,13 +12,10 @@ const styles = theme => ({
     justifyContent: "center",
     marginTop: theme.spacing.unit * 8,
     alignItems: "stretch"
-    // height:'100%',
-    // width:'100%',
   },
   paper: {
     display: "flex",
     flexDirection: "column"
-    // height:'100%'
   },
   tab: {
     paddingRight: 40,
