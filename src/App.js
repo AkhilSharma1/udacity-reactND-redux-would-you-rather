@@ -12,6 +12,7 @@ import { setAuthedUser } from "./actions/authedUser";
 import NewPoll from "./components/NewPoll";
 import LeaderBoard from "./components/LeaderBoard";
 import Score from "./components/Score";
+import AnswerPoll from "./components/AnswerPoll";
 
 class App extends Component {
   componentDidMount() {
@@ -44,7 +45,8 @@ class App extends Component {
             //     totalNum: 6
             //   })}
             // />
-            <LeaderBoard/>
+            // <LeaderBoard/>
+            <AnswerPoll questionId = "vthrdm985a262al8qx3do"/>
           )}
         </Fragment>
       </Router>
