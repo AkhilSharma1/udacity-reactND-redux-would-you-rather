@@ -7,12 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import PollOverview from "./PollOverview";
 
 const styles = theme => ({
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: theme.spacing.unit * 8,
-    alignItems: "stretch"
-  },
+
   paper: {
     display: "flex",
     flexDirection: "column"
@@ -39,7 +34,6 @@ class Home extends Component {
     const { classes, authedUser, questions, users } = this.props;
 
     return (
-      <div className={classes.container}>
         <Paper square className={classes.paper}>
           <Tabs
             className={classes.tab}
@@ -66,7 +60,6 @@ class Home extends Component {
               ))}
           </ul>
         </Paper>
-      </div>
     );
   }
 }

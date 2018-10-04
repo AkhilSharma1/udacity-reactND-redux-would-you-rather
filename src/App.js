@@ -13,16 +13,28 @@ import NewPoll from "./components/NewPoll";
 import LeaderBoard from "./components/LeaderBoard";
 import Score from "./components/Score";
 import AnswerPoll from "./components/AnswerPoll";
+import PollResult from "./components/PollResult";
+import { withStyles } from "@material-ui/core/styles";
+export const red = '#b71845'
+
+const styles = theme => ({
+
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: theme.spacing.unit * 8,
+    alignItems: "stretch"
+  }
+});
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(setAuthedUser("sarahedo"));
-
     this.props.dispatch(handleInitialData());
   }
 
   render() {
-    const { authedUser, loading } = this.props;
+    const { authedUser, loading, classes } = this.props;
 
     return (
       <Router>
@@ -46,7 +58,13 @@ class App extends Component {
             //   })}
             // />
             // <LeaderBoard/>
-            <AnswerPoll questionId = "vthrdm985a262al8qx3do"/>
+            // <AnswerPoll questionId = "vthrdm985a262al8qx3do"/>
+            // <div className={classes.r}>
+              <div className={classes.container}>
+                <PollResult questionId="6ni6ok3ym7mf1p33lnez" />
+                {/* <Home/> */}
+              </div>
+            // </div>
           )}
         </Fragment>
       </Router>
@@ -61,4 +79,4 @@ function mapStateToProps({ authedUser, questions }) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(withStyles(styles)(App));
