@@ -5,9 +5,10 @@ import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import PollOverview from "./PollOverview";
+import { Redirect } from 'react-router-dom';
+import { isAnsweredQuestion } from '../utils/helpers';
 
 const styles = theme => ({
-
   paper: {
     display: "flex",
     flexDirection: "column"
@@ -32,6 +33,8 @@ class Home extends Component {
 
   render() {
     const { classes, authedUser, questions, users } = this.props;
+    if(!authedUser)
+      return (<Redirect to='/login'/>)
 
     return (
         <Paper square className={classes.paper}>
@@ -50,8 +53,8 @@ class Home extends Component {
               .filter(
                 quesId =>
                   this.state.value === 0
-                    ? !isAnsweredQuestion(quesId, users[authedUser].answers)
-                    : isAnsweredQuestion(quesId, users[authedUser].answers)
+                    ? !isAnsweredQuestion(quesId, users[authedUser])
+                    : isAnsweredQuestion(quesId, users[authedUser])
               )
               .map(quesId => (
                 <li key={quesId}>
@@ -64,9 +67,6 @@ class Home extends Component {
   }
 }
 
-function isAnsweredQuestion(questionId, answeredQuestionsObj) {
-  return Object.keys(answeredQuestionsObj).includes(questionId);
-}
 
 function mapStateToProps({ authedUser, questions, users }) {
   return {

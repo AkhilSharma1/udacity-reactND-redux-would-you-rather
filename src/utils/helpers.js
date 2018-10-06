@@ -1,3 +1,6 @@
+export function isAnsweredQuestion(questionId, user) {
+  return Object.keys(user.answers).includes(questionId);
+}
 
 export function getLeaderboardData(users) {
   return Object.keys(users).map(userId => ({

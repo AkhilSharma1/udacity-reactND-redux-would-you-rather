@@ -9,9 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import { handleAddQuestion } from "../actions/questions";
 
 const styles = theme => ({
-  root: {
-    marginTop: theme.spacing.unit * 8
-  },
+
   paper: {
     height: "auto",
     width: 500,
@@ -27,7 +25,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3
   }
 });
-class NewPoll extends Component {
+class CreatePoll extends Component {
   state = {
     optionOneText: "",
     optionTwoText: ""
@@ -62,7 +60,6 @@ class NewPoll extends Component {
     return (
       <Grid
         container
-        className={classes.root}
         direction="column"
         alignItems="center"
       >
@@ -144,4 +141,4 @@ function mapStateToProps({ authedUser }) {
   };
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(NewPoll));
+export default connect(mapStateToProps)(withStyles(styles)(CreatePoll));

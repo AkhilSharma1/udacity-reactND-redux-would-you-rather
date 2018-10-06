@@ -5,12 +5,10 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
+import { Link, withRouter } from "react-router-dom";
 
 const styles = theme => ({
-  container: {
-    display: "flex",
-    justifyContent: "center"
-  },
+ 
   paper: {
     width: 400,
     display: "flex",
@@ -26,7 +24,6 @@ const styles = theme => ({
   title: {
     fontWeight: "bold",
     marginLeft: theme.spacing.unit * 2
-
   },
   detail: {
     display: "flex",
@@ -54,15 +51,15 @@ const styles = theme => ({
   }
 });
 class PollOverview extends Component {
-  handleSubmit = e => {
+  handleSubmit = (e,id) => {
     e.preventDefault();
     //TODO: go to poll details page.
+    this.props.history.push(`/questions/${id}`) 
   };
   render() {
     const { classes, question, user } = this.props;
 
     return (
-      <div className={classes.container}>
         <Paper className={classes.paper}>
           <div className={classes.header}>
             <Typography variant="subheading" className={classes.title}>
@@ -88,14 +85,13 @@ class PollOverview extends Component {
                 color="primary"
                 fullWidth
                 className={classes.button}
-                onClick={this.handleSubmit}
+                onClick={(e)=>this.handleSubmit(e,question.id)}
               >
                 View Poll
               </Button>
             </div>
           </div>
         </Paper>
-      </div>
     );
   }
 }
@@ -110,4 +106,4 @@ function mapStateToProps({ authedUser, questions, users }, { questionId }) {
   };
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(PollOverview));
+export default  withRouter(connect(mapStateToProps)(withStyles(styles)(PollOverview)));

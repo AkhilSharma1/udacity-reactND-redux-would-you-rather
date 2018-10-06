@@ -13,10 +13,7 @@ import Select from "@material-ui/core/Select";
 import { setAuthedUser } from "../actions/authedUser";
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    marginTop: theme.spacing.unit * 8
-  },
+ 
   paper: {
     height: "auto",
     width: 500,
@@ -40,12 +37,13 @@ const styles = theme => ({
     minWidth: 180
   },
   submit: {
-    marginTop: theme.spacing.unit * 3
+    marginTop: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3
+
   }
 });
 class Login extends Component {
   state = {
-    // userid: this.props.users[Object.keys(this.props.users)[0]].name
     userId: Object.keys(this.props.users)[0]
   };
 
@@ -57,11 +55,9 @@ class Login extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.dispatch(
-      setAuthedUser({
-        id: this.state.userId
-      })
+      setAuthedUser(this.state.userId)
     );
-    // this.props.history.push(`/`)
+     this.props.history.push(`/`)
   };
 
   render() {
@@ -81,7 +77,6 @@ class Login extends Component {
               direction="column"
               justify="flex-start"
               alignItems="center"
-              //   spacing={16}
             >
               <Grid
                 container
@@ -137,7 +132,6 @@ class Login extends Component {
               <Grid item>
                 <Button
                   type="submit"
-                  fullWidth
                   variant="raised"
                   color="primary"
                   className={classes.submit}

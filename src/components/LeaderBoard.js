@@ -6,9 +6,7 @@ import Score from "./Score";
 import Grid from "@material-ui/core/Grid";
 
 const styles = theme => ({
-  root: {
-    marginTop: theme.spacing.unit * 8
-  },
+
   ul: {
     listStyleType: "none"
   }
@@ -20,7 +18,7 @@ class LeaderBoard extends Component {
     return (
       <Grid
         container
-        className={classes.root}
+   
         direction="column"
         alignItems="center"
       >
