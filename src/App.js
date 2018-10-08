@@ -15,6 +15,7 @@ import AnswerPoll from "./components/AnswerPoll";
 import PollResult from "./components/PollResult";
 import { withStyles } from "@material-ui/core/styles";
 import PollDetail from './components/PollDetail';
+import authedUser from './reducers/authedUser';
 
 const styles = theme => ({
   container: {
@@ -47,14 +48,12 @@ class App extends Component {
               <div>
                 <Nav/>
                 <Switch>
-                  <Route exact path="/" component={Home} />
+                  <PrivateRoute exact path="/" component={Home}  authedUser = {authedUser}/>
                   <Route path="/login" component={Login} />
-                  <Route path="/add" component={NewPoll} />
-                  <Route path="/leaderboard" component={LeaderBoard} />
-                  <Route path="/questions/:question_id" component={PollDetail} />
+                  <PrivateRoute path="/add" component={NewPoll} authedUser = {authedUser}/>
+                  <PrivateRoute path="/leaderboard" component={LeaderBoard}  authedUser = {authedUser} />
+                  <PrivateRoute path="/questions/:question_id" component={PollDetail}  authedUser = {authedUser}/>
                 </Switch>
-            {/* (!authedUser) &&  (<Redirect to='/login'/>) */}
-
               </div>
             )}
           </div>
@@ -63,6 +62,24 @@ class App extends Component {
     );
   }
 }
+
+const PrivateRoute = ({ component: Component, authedUser, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      authedUser!==null ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: props.location }
+          }}
+        />
+      )
+    }
+  />
+);
 
 function mapStateToProps({ authedUser, questions }) {
   return {

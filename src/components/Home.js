@@ -33,8 +33,6 @@ class Home extends Component {
 
   render() {
     const { classes, authedUser, questions, users } = this.props;
-    if(!authedUser)
-      return (<Redirect to='/login'/>)
 
     return (
         <Paper square className={classes.paper}>

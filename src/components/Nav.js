@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Link} from "react-router-dom";
+import { withRouter, Link, Redirect} from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import { AppBar } from "@material-ui/core";
 import Tabs from "@material-ui/core/Tabs";
@@ -79,7 +79,7 @@ class Nav extends Component {
               <Button onClick = {this.handleLogout} color = 'inherit'>Logout</Button>
             </div>
           )}    
-
+      {!authedUser && <Redirect to='/login'/>}
         </AppBar>
     );
   }
