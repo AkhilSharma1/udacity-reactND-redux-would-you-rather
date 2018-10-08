@@ -52,6 +52,9 @@ class CreatePoll extends Component {
     dispatch(
       handleAddQuestion(authedUser, optionOneText, optionTwoText)
     );
+    this.props.history.push(`/`)
+
+
   };
 
   render() {
